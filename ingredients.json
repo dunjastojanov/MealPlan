@@ -1,0 +1,53 @@
+[
+    { "id": "strawberry", "name": "jagode", "calories": 32, "protein": 0.7 },
+    { "id": "chia_seeds", "name": "chia semenke", "calories": 486, "protein": 17 },
+    { "id": "lemon_juice", "name": "limunov sok", "calories": 22, "protein": 0.4 },
+    { "id": "erythritol", "name": "eritritol", "calories": 0, "protein": 0 },
+  
+    { "id": "whole_wheat_flour", "name": "integralno brašno", "calories": 340, "protein": 13 },
+    { "id": "egg", "name": "jaja", "calories": 155, "protein": 13 },
+    { "id": "oil", "name": "ulje", "calories": 884, "protein": 0 },
+  
+    { "id": "oats", "name": "ovsene pahuljice", "calories": 389, "protein": 17 },
+    { "id": "flaxseed", "name": "lan", "calories": 534, "protein": 18 },
+    { "id": "almond_milk", "name": "bademovo mleko", "calories": 13, "protein": 0.4 },
+  
+    { "id": "bread", "name": "integralni hleb", "calories": 177, "protein": 6 },
+    { "id": "chicken_breast", "name": "pileća prsa", "calories": 120, "protein": 22 },
+    { "id": "turkey_breast", "name": "ćureća prsa", "calories": 135, "protein": 29 },
+    { "id": "hummus", "name": "humus", "calories": 166, "protein": 8 },
+    { "id": "lettuce", "name": "zelena salata", "calories": 15, "protein": 1.4 },
+    { "id": "tomato", "name": "paradajz", "calories": 18, "protein": 0.9 },
+    { "id": "cucumber", "name": "krastavac", "calories": 15, "protein": 0.7 },
+  
+    { "id": "pasta", "name": "testenina", "calories": 350, "protein": 12 },
+    { "id": "spinach", "name": "spanać", "calories": 23, "protein": 2.9 },
+    { "id": "cheese", "name": "sir", "calories": 350, "protein": 25 },
+    { "id": "cooking_cream", "name": "pavlaka za kuvanje", "calories": 200, "protein": 2 },
+  
+    { "id": "beef_minced", "name": "mlevena junetina", "calories": 250, "protein": 26 },
+    { "id": "onion", "name": "luk", "calories": 40, "protein": 1.1 },
+    { "id": "carrot", "name": "šargarepa", "calories": 41, "protein": 0.9 },
+    { "id": "parmesan", "name": "parmezan", "calories": 431, "protein": 36 },
+  
+    { "id": "tortilla", "name": "tortilja", "calories": 310, "protein": 8 },
+  
+    { "id": "olives", "name": "masline", "calories": 145, "protein": 1 },
+    { "id": "apple", "name": "jabuka", "calories": 52, "protein": 0.3 },
+    { "id": "olive_oil", "name": "maslinovo ulje", "calories": 884, "protein": 0 },
+  
+    { "id": "tuna", "name": "tunjevina", "calories": 132, "protein": 29 },
+  
+    { "id": "beans_white", "name": "beli pasulj", "calories": 100, "protein": 7 },
+    { "id": "beans_red", "name": "crveni pasulj", "calories": 112, "protein": 8 },
+    { "id": "sausage", "name": "kobasica", "calories": 293, "protein": 12 },
+  
+    { "id": "rice", "name": "pirinač", "calories": 360, "protein": 7.5 },
+    { "id": "bell_pepper", "name": "paprika", "calories": 31, "protein": 1 },
+  
+    { "id": "rice_noodles", "name": "pirinčane nudle", "calories": 351, "protein": 6 },
+    { "id": "cabbage", "name": "kupus", "calories": 25, "protein": 1.3 },
+    { "id": "mushrooms", "name": "pečurke", "calories": 22, "protein": 3.1 },
+    { "id": "soy_sauce", "name": "soja sos", "calories": 53, "protein": 8 },
+    { "id": "garlic", "name": "beli luk", "calories": 149, "protein": 6.4 }
+  ]

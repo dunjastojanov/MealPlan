@@ -1,0 +1,242 @@
+[
+  {
+    "id": "dzem-od-jagoda",
+    "meal_type": "prep",
+    "name": "Džem od jagoda",
+    "preparation": "Izgnječiti jagode, dodati chia semenke, limunov sok i eritritol. Ostaviti 30 min da se zgusne.",
+    "ingredients_female": [
+      { "ingredient_id": "strawberry", "amount_g": 250 },
+      { "ingredient_id": "chia_seeds", "amount_g": 10 },
+      { "ingredient_id": "lemon_juice", "amount_g": 10 },
+      { "ingredient_id": "erythritol", "amount_g": 5 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "strawberry", "amount_g": 350 },
+      { "ingredient_id": "chia_seeds", "amount_g": 15 },
+      { "ingredient_id": "lemon_juice", "amount_g": 15 },
+      { "ingredient_id": "erythritol", "amount_g": 7 }
+    ]
+  },
+  {
+    "id": "integralne-palacinke",
+    "meal_type": "breakfast",
+    "name": "Integralne palačinke",
+    "preparation": "Pomešati sastojke, peći na tiganju uz minimalno ulja. Servirati sa džemom.",
+    "ingredients_female": [
+      { "ingredient_id": "whole_wheat_flour", "amount_g": 100 },
+      { "ingredient_id": "egg", "amount_g": 100 },
+      { "ingredient_id": "oil", "amount_g": 5 },
+      { "ingredient_id": "strawberry", "amount_g": 30 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "whole_wheat_flour", "amount_g": 140 },
+      { "ingredient_id": "egg", "amount_g": 150 },
+      { "ingredient_id": "oil", "amount_g": 7 },
+      { "ingredient_id": "strawberry", "amount_g": 40 }
+    ]
+  },
+  {
+    "id": "ovsena-kasa",
+    "meal_type": "breakfast",
+    "name": "Ovsena kaša",
+    "preparation": "Skuvati ovsene sa mlekom, dodati lan i džem.",
+    "ingredients_female": [
+      { "ingredient_id": "oats", "amount_g": 50 },
+      { "ingredient_id": "flaxseed", "amount_g": 10 },
+      { "ingredient_id": "almond_milk", "amount_g": 200 },
+      { "ingredient_id": "strawberry", "amount_g": 30 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "oats", "amount_g": 70 },
+      { "ingredient_id": "flaxseed", "amount_g": 15 },
+      { "ingredient_id": "almond_milk", "amount_g": 250 },
+      { "ingredient_id": "strawberry", "amount_g": 40 }
+    ]
+  },
+  {
+    "id": "sendvic",
+    "meal_type": "breakfast",
+    "name": "Sendvič",
+    "preparation": "Složiti sastojke između hleba.",
+    "ingredients_female": [
+      { "ingredient_id": "bread", "amount_g": 80 },
+      { "ingredient_id": "chicken_breast", "amount_g": 100 },
+      { "ingredient_id": "hummus", "amount_g": 30 },
+      { "ingredient_id": "lettuce", "amount_g": 50 },
+      { "ingredient_id": "tomato", "amount_g": 50 },
+      { "ingredient_id": "cucumber", "amount_g": 50 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "bread", "amount_g": 120 },
+      { "ingredient_id": "chicken_breast", "amount_g": 140 },
+      { "ingredient_id": "hummus", "amount_g": 40 },
+      { "ingredient_id": "lettuce", "amount_g": 70 },
+      { "ingredient_id": "tomato", "amount_g": 70 },
+      { "ingredient_id": "cucumber", "amount_g": 70 }
+    ]
+  },
+  {
+    "id": "testenina-sa-piletinom",
+    "meal_type": "lunch_dinner",
+    "name": "Testenina sa piletinom",
+    "preparation": "Skuvati testeninu. Piletinu propržiti, dodati spanać i sir, pa pomešati.",
+    "ingredients_female": [
+      { "ingredient_id": "pasta", "amount_g": 80 },
+      { "ingredient_id": "chicken_breast", "amount_g": 120 },
+      { "ingredient_id": "spinach", "amount_g": 100 },
+      { "ingredient_id": "cheese", "amount_g": 20 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "pasta", "amount_g": 110 },
+      { "ingredient_id": "chicken_breast", "amount_g": 160 },
+      { "ingredient_id": "spinach", "amount_g": 150 },
+      { "ingredient_id": "cheese", "amount_g": 30 }
+    ]
+  },
+  {
+    "id": "bolonjeze",
+    "meal_type": "lunch_dinner",
+    "name": "Bolonjeze",
+    "preparation": "Dinstati luk i šargarepu, dodati meso i paradajz. Poslužiti sa testeninom.",
+    "ingredients_female": [
+      { "ingredient_id": "pasta", "amount_g": 80 },
+      { "ingredient_id": "beef_minced", "amount_g": 100 },
+      { "ingredient_id": "onion", "amount_g": 50 },
+      { "ingredient_id": "carrot", "amount_g": 50 },
+      { "ingredient_id": "tomato", "amount_g": 150 },
+      { "ingredient_id": "parmesan", "amount_g": 20 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "pasta", "amount_g": 120 },
+      { "ingredient_id": "beef_minced", "amount_g": 150 },
+      { "ingredient_id": "onion", "amount_g": 70 },
+      { "ingredient_id": "carrot", "amount_g": 70 },
+      { "ingredient_id": "tomato", "amount_g": 200 },
+      { "ingredient_id": "parmesan", "amount_g": 30 }
+    ]
+  },
+  {
+    "id": "tortilja",
+    "meal_type": "lunch_dinner",
+    "name": "Tortilja",
+    "preparation": "Zagrejati tortilju i napuniti sastojcima.",
+    "ingredients_female": [
+      { "ingredient_id": "tortilla", "amount_g": 60 },
+      { "ingredient_id": "chicken_breast", "amount_g": 100 },
+      { "ingredient_id": "hummus", "amount_g": 30 },
+      { "ingredient_id": "lettuce", "amount_g": 50 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "tortilla", "amount_g": 90 },
+      { "ingredient_id": "chicken_breast", "amount_g": 150 },
+      { "ingredient_id": "hummus", "amount_g": 40 },
+      { "ingredient_id": "lettuce", "amount_g": 70 }
+    ]
+  },
+  {
+    "id": "salata",
+    "meal_type": "lunch_dinner",
+    "name": "Salata",
+    "preparation": "Pomešati sve sastojke i začiniti.",
+    "ingredients_female": [
+      { "ingredient_id": "chicken_breast", "amount_g": 100 },
+      { "ingredient_id": "lettuce", "amount_g": 100 },
+      { "ingredient_id": "tomato", "amount_g": 100 },
+      { "ingredient_id": "olives", "amount_g": 30 },
+      { "ingredient_id": "apple", "amount_g": 100 },
+      { "ingredient_id": "olive_oil", "amount_g": 10 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "chicken_breast", "amount_g": 150 },
+      { "ingredient_id": "lettuce", "amount_g": 150 },
+      { "ingredient_id": "tomato", "amount_g": 150 },
+      { "ingredient_id": "olives", "amount_g": 40 },
+      { "ingredient_id": "apple", "amount_g": 150 },
+      { "ingredient_id": "olive_oil", "amount_g": 15 }
+    ]
+  },
+  {
+    "id": "bruskete-sa-tunjevinom",
+    "meal_type": "lunch_dinner",
+    "name": "Bruskete sa tunjevinom",
+    "preparation": "Istostirati hleb i dodati tunjevinu, masline i paradajz.",
+    "ingredients_female": [
+      { "ingredient_id": "bread", "amount_g": 80 },
+      { "ingredient_id": "tuna", "amount_g": 120 },
+      { "ingredient_id": "olives", "amount_g": 30 },
+      { "ingredient_id": "tomato", "amount_g": 100 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "bread", "amount_g": 120 },
+      { "ingredient_id": "tuna", "amount_g": 160 },
+      { "ingredient_id": "olives", "amount_g": 40 },
+      { "ingredient_id": "tomato", "amount_g": 150 }
+    ]
+  },
+  {
+    "id": "pasulj-sa-kobasicom",
+    "meal_type": "lunch_dinner",
+    "name": "Pasulj sa kobasicom",
+    "preparation": "Skuvati pasulj sa povrćem, dodati kobasicu pred kraj.",
+    "ingredients_female": [
+      { "ingredient_id": "beans_white", "amount_g": 150 },
+      { "ingredient_id": "sausage", "amount_g": 100 },
+      { "ingredient_id": "onion", "amount_g": 50 },
+      { "ingredient_id": "carrot", "amount_g": 50 },
+      { "ingredient_id": "bread", "amount_g": 50 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "beans_white", "amount_g": 200 },
+      { "ingredient_id": "sausage", "amount_g": 150 },
+      { "ingredient_id": "onion", "amount_g": 70 },
+      { "ingredient_id": "carrot", "amount_g": 70 },
+      { "ingredient_id": "bread", "amount_g": 80 }
+    ]
+  },
+  {
+    "id": "burrito-bowl",
+    "meal_type": "lunch_dinner",
+    "name": "Burrito bowl",
+    "preparation": "Skuvati pirinač, ispeći meso i pomešati sa povrćem i pasuljem. Dodati sir.",
+    "ingredients_female": [
+      { "ingredient_id": "rice", "amount_g": 50 },
+      { "ingredient_id": "beef_minced", "amount_g": 80 },
+      { "ingredient_id": "beans_red", "amount_g": 70 },
+      { "ingredient_id": "bell_pepper", "amount_g": 100 },
+      { "ingredient_id": "cheese", "amount_g": 20 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "rice", "amount_g": 80 },
+      { "ingredient_id": "beef_minced", "amount_g": 120 },
+      { "ingredient_id": "beans_red", "amount_g": 100 },
+      { "ingredient_id": "bell_pepper", "amount_g": 150 },
+      { "ingredient_id": "cheese", "amount_g": 25 }
+    ]
+  },
+  {
+    "id": "stir-fry",
+    "meal_type": "lunch_dinner",
+    "name": "Stir-fry",
+    "preparation": "Ispeći meso, dodati povrće, zatim nudle i soja sos. Kratko propržiti.",
+    "ingredients_female": [
+      { "ingredient_id": "rice_noodles", "amount_g": 45 },
+      { "ingredient_id": "beef_minced", "amount_g": 100 },
+      { "ingredient_id": "cabbage", "amount_g": 120 },
+      { "ingredient_id": "carrot", "amount_g": 50 },
+      { "ingredient_id": "mushrooms", "amount_g": 100 },
+      { "ingredient_id": "soy_sauce", "amount_g": 15 },
+      { "ingredient_id": "oil", "amount_g": 5 },
+      { "ingredient_id": "garlic", "amount_g": 5 }
+    ],
+    "ingredients_male": [
+      { "ingredient_id": "rice_noodles", "amount_g": 90 },
+      { "ingredient_id": "beef_minced", "amount_g": 160 },
+      { "ingredient_id": "cabbage", "amount_g": 150 },
+      { "ingredient_id": "carrot", "amount_g": 70 },
+      { "ingredient_id": "mushrooms", "amount_g": 150 },
+      { "ingredient_id": "soy_sauce", "amount_g": 20 },
+      { "ingredient_id": "oil", "amount_g": 7 },
+      { "ingredient_id": "garlic", "amount_g": 7 }
+    ]
+  }
+]
