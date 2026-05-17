@@ -22,6 +22,7 @@ const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
 const navItems = [
   { to: '/', end: true, label: 'Početna' },
   { to: '/ingredients', end: false, label: 'Sastojci' },
+  { to: '/ingredient-types', end: false, label: 'Tipovi' },
   { to: '/meals', end: false, label: 'Obroci' },
   { to: '/meal-plans', end: false, label: 'Planovi' },
 ] as const

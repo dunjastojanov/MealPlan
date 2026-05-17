@@ -15,7 +15,9 @@ import {
   updateIngredient,
   updateMealIngredientAmounts,
 } from '../services/ingredientService'
-import type { Ingredient, IngredientUnit } from '../types'
+import { fetchIngredientTypes } from '../services/ingredientTypeService'
+import { fetchMealOptions } from '../services/mealService'
+import type { Ingredient, IngredientType, IngredientUnit, MealOption } from '../types'
 
 export type { IngredientFormValues } from '../lib/ingredientDisplay'
 export type { IngredientMealUsage } from '../services/ingredientService'
@@ -23,6 +25,8 @@ export { macroLabel, toDisplayMacro } from '../lib/ingredientDisplay'
 
 export function useIngredients() {
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
+  const [ingredientTypes, setIngredientTypes] = useState<IngredientType[]>([])
+  const [mealOptions, setMealOptions] = useState<MealOption[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -47,9 +51,15 @@ export function useIngredients() {
       setLoading(true)
       setError(null)
       try {
-        const data = await fetchIngredients()
+        const [data, types, meals] = await Promise.all([
+          fetchIngredients(),
+          fetchIngredientTypes(),
+          fetchMealOptions(),
+        ])
         if (!cancelled) {
           setIngredients(data)
+          setIngredientTypes(types)
+          setMealOptions(meals)
         }
       } catch (err) {
         if (!cancelled) {
@@ -186,7 +196,7 @@ export function useIngredients() {
 
     let payload
     try {
-      payload = formValuesToUpdate(form)
+      payload = formValuesToUpdate(form, ingredientTypes)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Nevažeće vrednosti u formi.')
       return
@@ -206,7 +216,7 @@ export function useIngredients() {
     } finally {
       setSaving(false)
     }
-  }, [closeCreate, creating, form, saving])
+  }, [closeCreate, creating, form, ingredientTypes, saving])
 
   const saveEdit = useCallback(async () => {
     if (!editingId || !form || saving || originalUnit == null) {
@@ -215,7 +225,7 @@ export function useIngredients() {
 
     let payload
     try {
-      payload = formValuesToUpdate(form)
+      payload = formValuesToUpdate(form, ingredientTypes)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Nevažeće vrednosti u formi.')
       return
@@ -262,7 +272,9 @@ export function useIngredients() {
       original.name === payload.name &&
       original.calories === payload.calories &&
       original.protein === payload.protein &&
-      original.unit === payload.unit
+      original.unit === payload.unit &&
+      original.ingredientTypeId === payload.ingredient_type_id &&
+      original.recipeId === payload.recipe_id
 
     if (unchanged) {
       closeEdit()
@@ -289,6 +301,7 @@ export function useIngredients() {
     closeEdit,
     editingId,
     form,
+    ingredientTypes,
     ingredients,
     mealAmounts,
     mealUsages,
@@ -331,6 +344,8 @@ export function useIngredients() {
 
   return {
     ingredients,
+    ingredientTypes,
+    mealOptions,
     loading,
     error,
     editingIngredient,

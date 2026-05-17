@@ -4,8 +4,9 @@ import {
   formatPreviousAmount,
   mealAmountLabel,
 } from '../lib/ingredientMealAmounts'
+import { isMadeIngredientType } from '../lib/ingredientType'
 import type { IngredientMealUsage } from '../services/ingredientService'
-import type { IngredientUnit } from '../types'
+import type { IngredientType, IngredientUnit, MealOption } from '../types'
 
 const inputClassName =
   'mt-1 w-full rounded-lg border border-border bg-bg px-3 py-2 text-text outline-none focus:border-accent disabled:opacity-60'
@@ -14,6 +15,8 @@ type IngredientEditAsideProps = {
   open: boolean
   title: string
   form: IngredientFormValues
+  ingredientTypes: IngredientType[]
+  mealOptions: MealOption[]
   originalUnit: IngredientUnit
   unitChanged: boolean
   mealUsages: IngredientMealUsage[]
@@ -33,6 +36,8 @@ export function IngredientEditAside({
   open,
   title,
   form,
+  ingredientTypes,
+  mealOptions,
   originalUnit,
   unitChanged,
   mealUsages,
@@ -48,6 +53,7 @@ export function IngredientEditAside({
   panelLabel = 'Izmena sastojka',
 }: IngredientEditAsideProps) {
   const saveDisabled = saving || (unitChanged && usagesLoading)
+  const showRecipeField = isMadeIngredientType(form.ingredientTypeId, ingredientTypes)
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     onSave()
@@ -136,6 +142,31 @@ export function IngredientEditAside({
           </label>
 
           <label className="mt-4 block">
+            <span className="text-sm font-medium text-text-h">Tip</span>
+            <select
+              value={form.ingredientTypeId}
+              disabled={saving}
+              onChange={(event) => {
+                const ingredientTypeId = event.target.value
+                const patch: Partial<IngredientFormValues> = { ingredientTypeId }
+                if (!isMadeIngredientType(ingredientTypeId, ingredientTypes)) {
+                  patch.recipeId = ''
+                }
+                onChange(patch)
+              }}
+              className={inputClassName}
+              required
+            >
+              <option value="">Izaberite tip</option>
+              {ingredientTypes.map((type) => (
+                <option key={type.id} value={type.id}>
+                  {type.name}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="mt-4 block">
             <span className="text-sm font-medium text-text-h">Jedinica</span>
             <select
               value={form.unit}
@@ -147,6 +178,25 @@ export function IngredientEditAside({
               <option value="piece">komad</option>
             </select>
           </label>
+
+          {showRecipeField && (
+            <label className="mt-4 block">
+              <span className="text-sm font-medium text-text-h">Recept</span>
+              <select
+                value={form.recipeId}
+                disabled={saving}
+                onChange={(event) => onChange({ recipeId: event.target.value })}
+                className={inputClassName}
+              >
+                <option value="">Bez recepta</option>
+                {mealOptions.map((meal) => (
+                  <option key={meal.id} value={meal.id}>
+                    {meal.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
 
           {unitChanged && mealUsages.length > 0 && (
             <fieldset className="mt-6">

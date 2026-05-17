@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import { AppLayout } from './layouts/AppLayout'
 import { HomePage } from './pages/HomePage'
 import { IngredientsPage } from './pages/IngredientsPage'
+import { IngredientTypesPage } from './pages/IngredientTypesPage'
 import { LoginPage } from './pages/LoginPage'
 import { DayRecipePage } from './pages/DayRecipePage'
 import { MealPlansPage } from './pages/MealPlansPage'
@@ -39,6 +40,7 @@ function App() {
       >
         <Route path="/" element={<HomePage />} />
         <Route path="/ingredients" element={<IngredientsPage />} />
+        <Route path="/ingredient-types" element={<IngredientTypesPage />} />
         <Route path="/meals" element={<MealsPage />} />
         <Route path="/meal-plans" element={<MealPlansPage />} />
         <Route path="/meal-plans/:dayOfWeek" element={<DayRecipePage />} />

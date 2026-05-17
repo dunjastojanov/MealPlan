@@ -6,6 +6,8 @@ export type IngredientUpdate = {
   calories: number
   protein: number
   unit: IngredientUnit
+  ingredient_type_id: string | null
+  recipe_id: string | null
 }
 
 export type IngredientMealUsage = {
@@ -15,6 +17,80 @@ export type IngredientMealUsage = {
 }
 
 type MealEmbed = { name: string } | { name: string }[] | null
+
+type IngredientTypeEmbed =
+  | { id: string; number: number; name: string }
+  | { id: string; number: number; name: string }[]
+  | null
+
+const ingredientSelect = `
+  id,
+  name,
+  calories,
+  protein,
+  unit,
+  ingredient_type_id,
+  recipe_id,
+  ingredient_type (
+    id,
+    number,
+    name
+  )
+`
+
+function resolveIngredientType(embed: IngredientTypeEmbed): {
+  ingredientTypeId: string | null
+  ingredientTypeName: string | null
+  ingredientTypeNumber: number | null
+} {
+  if (embed == null) {
+    return {
+      ingredientTypeId: null,
+      ingredientTypeName: null,
+      ingredientTypeNumber: null,
+    }
+  }
+
+  const type = Array.isArray(embed) ? (embed[0] ?? null) : embed
+  if (!type) {
+    return {
+      ingredientTypeId: null,
+      ingredientTypeName: null,
+      ingredientTypeNumber: null,
+    }
+  }
+
+  return {
+    ingredientTypeId: type.id,
+    ingredientTypeName: type.name,
+    ingredientTypeNumber: type.number,
+  }
+}
+
+function mapIngredientRow(row: {
+  id: string
+  name: string
+  calories: number | string
+  protein: number | string
+  unit: string
+  ingredient_type_id: string | null
+  recipe_id: string | null
+  ingredient_type: IngredientTypeEmbed
+}): Ingredient {
+  const typeFields = resolveIngredientType(row.ingredient_type)
+
+  return {
+    id: row.id,
+    name: row.name,
+    calories: Number(row.calories),
+    protein: Number(row.protein),
+    unit: row.unit as Ingredient['unit'],
+    ingredientTypeId: row.ingredient_type_id ?? typeFields.ingredientTypeId,
+    ingredientTypeName: typeFields.ingredientTypeName,
+    ingredientTypeNumber: typeFields.ingredientTypeNumber,
+    recipeId: row.recipe_id,
+  }
+}
 
 function resolveMealName(meals: MealEmbed): string | null {
   if (meals == null) {
@@ -27,40 +103,28 @@ function resolveMealName(meals: MealEmbed): string | null {
 export async function fetchIngredients(): Promise<Ingredient[]> {
   const { data, error } = await supabase
     .from('ingredients')
-    .select('id, name, calories, protein, unit')
+    .select(ingredientSelect)
     .order('name')
 
   if (error) {
     throw new Error(error.message)
   }
 
-  return (data ?? []).map((row) => ({
-    id: row.id,
-    name: row.name,
-    calories: Number(row.calories),
-    protein: Number(row.protein),
-    unit: row.unit as Ingredient['unit'],
-  }))
+  return (data ?? []).map((row) => mapIngredientRow(row))
 }
 
 export async function createIngredient(update: IngredientUpdate): Promise<Ingredient> {
   const { data, error } = await supabase
     .from('ingredients')
     .insert(update)
-    .select('id, name, calories, protein, unit')
+    .select(ingredientSelect)
     .single()
 
   if (error) {
     throw new Error(error.message)
   }
 
-  return {
-    id: data.id,
-    name: data.name,
-    calories: Number(data.calories),
-    protein: Number(data.protein),
-    unit: data.unit as Ingredient['unit'],
-  }
+  return mapIngredientRow(data)
 }
 
 export async function updateIngredient(
@@ -71,20 +135,14 @@ export async function updateIngredient(
     .from('ingredients')
     .update(update)
     .eq('id', id)
-    .select('id, name, calories, protein, unit')
+    .select(ingredientSelect)
     .single()
 
   if (error) {
     throw new Error(error.message)
   }
 
-  return {
-    id: data.id,
-    name: data.name,
-    calories: Number(data.calories),
-    protein: Number(data.protein),
-    unit: data.unit as Ingredient['unit'],
-  }
+  return mapIngredientRow(data)
 }
 
 export async function fetchIngredientMealUsages(

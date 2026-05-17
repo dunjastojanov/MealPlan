@@ -1,6 +1,6 @@
 import { computeMealMacros } from '../lib/mealMacros'
 import { supabase } from '../lib/supabase'
-import type { IngredientUnit, Meal, MealIngredientLine } from '../types'
+import type { IngredientUnit, Meal, MealIngredientLine, MealOption } from '../types'
 
 export type MealIngredientUpdate = {
   ingredientId: string
@@ -101,6 +101,16 @@ function mapMealRow(row: MealRow): Meal {
     calories,
     protein,
   }
+}
+
+export async function fetchMealOptions(): Promise<MealOption[]> {
+  const { data, error } = await supabase.from('meals').select('id, name').order('name')
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  return data ?? []
 }
 
 export async function fetchMeals(): Promise<Meal[]> {

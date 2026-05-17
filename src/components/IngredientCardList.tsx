@@ -26,6 +26,12 @@ export function IngredientCardList({
           <h2 className="font-semibold text-text-h">{ingredient.name}</h2>
           <dl className="mt-3 grid gap-2 text-sm">
             <div className="flex justify-between gap-4">
+              <dt className="text-text">Tip</dt>
+              <dd className="text-right font-medium text-text-h">
+                {ingredient.ingredientTypeName ?? '—'}
+              </dd>
+            </div>
+            <div className="flex justify-between gap-4">
               <dt className="text-text">Kalorije</dt>
               <dd className="text-right font-medium text-text-h">
                 {toDisplayMacro(ingredient.calories, ingredient.unit)}{' '}
@@ -69,3 +75,4 @@ export function IngredientCardList({
     </ul>
   )
 }
+

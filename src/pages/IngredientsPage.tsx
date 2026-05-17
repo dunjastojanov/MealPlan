@@ -13,6 +13,8 @@ const addButtonClassName =
 export function IngredientsPage() {
   const {
     ingredients,
+    ingredientTypes,
+    mealOptions,
     loading,
     error,
     editingIngredient,
@@ -92,6 +94,9 @@ export function IngredientsPage() {
                   Naziv
                 </th>
                 <th scope="col" className="px-4 py-3 font-medium text-text-h">
+                  Tip
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium text-text-h">
                   Kalorije
                 </th>
                 <th scope="col" className="px-4 py-3 font-medium text-text-h">
@@ -109,6 +114,9 @@ export function IngredientsPage() {
               {ingredients.map((ingredient) => (
                 <tr key={ingredient.id} className="border-b border-border last:border-0">
                   <td className="px-4 py-3 font-medium text-text-h">{ingredient.name}</td>
+                  <td className="px-4 py-3 text-text">
+                    {ingredient.ingredientTypeName ?? '—'}
+                  </td>
                   <td className="px-4 py-3 text-text">
                     {toDisplayMacro(ingredient.calories, ingredient.unit)}{' '}
                     <span className="text-xs text-text/80">({macroLabel(ingredient.unit)})</span>
@@ -149,6 +157,8 @@ export function IngredientsPage() {
           open={creating}
           title="Novi sastojak"
           form={form}
+          ingredientTypes={ingredientTypes}
+          mealOptions={mealOptions}
           originalUnit={form.unit}
           unitChanged={false}
           mealUsages={[]}
@@ -170,6 +180,8 @@ export function IngredientsPage() {
           open={editingIngredient != null}
           title={`Izmena: ${editingIngredient.name}`}
           form={form}
+          ingredientTypes={ingredientTypes}
+          mealOptions={mealOptions}
           originalUnit={originalUnit}
           unitChanged={unitChanged}
           mealUsages={mealUsages}

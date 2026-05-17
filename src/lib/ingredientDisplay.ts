@@ -1,4 +1,5 @@
-import type { Ingredient, IngredientUnit } from '../types'
+import { isMadeIngredientType } from './ingredientType'
+import type { Ingredient, IngredientType, IngredientUnit } from '../types'
 import type { IngredientUpdate } from '../services/ingredientService'
 
 export type IngredientFormValues = {
@@ -6,6 +7,8 @@ export type IngredientFormValues = {
   calories: string
   protein: string
   unit: IngredientUnit
+  ingredientTypeId: string
+  recipeId: string
 }
 
 export function toDisplayMacro(value: number, unit: IngredientUnit) {
@@ -31,6 +34,8 @@ export function emptyIngredientFormValues(): IngredientFormValues {
     calories: '',
     protein: '',
     unit: 'g',
+    ingredientTypeId: '',
+    recipeId: '',
   }
 }
 
@@ -40,19 +45,33 @@ export function ingredientToFormValues(ingredient: Ingredient): IngredientFormVa
     calories: toDisplayMacro(ingredient.calories, ingredient.unit),
     protein: toDisplayMacro(ingredient.protein, ingredient.unit),
     unit: ingredient.unit,
+    ingredientTypeId: ingredient.ingredientTypeId ?? '',
+    recipeId: ingredient.recipeId ?? '',
   }
 }
 
-export function formValuesToUpdate(form: IngredientFormValues): IngredientUpdate {
+export function formValuesToUpdate(
+  form: IngredientFormValues,
+  ingredientTypes: IngredientType[],
+): IngredientUpdate {
   const name = form.name.trim()
   if (!name) {
     throw new Error('Naziv je obavezan.')
   }
+
+  if (!form.ingredientTypeId.trim()) {
+    throw new Error('Tip je obavezan.')
+  }
+
+  const madeType = isMadeIngredientType(form.ingredientTypeId, ingredientTypes)
+  const recipeId = madeType && form.recipeId.trim() ? form.recipeId : null
 
   return {
     name,
     calories: fromDisplayMacro(form.calories, form.unit),
     protein: fromDisplayMacro(form.protein, form.unit),
     unit: form.unit,
+    ingredient_type_id: form.ingredientTypeId,
+    recipe_id: recipeId,
   }
 }

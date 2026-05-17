@@ -38,12 +38,27 @@ export type DayOfWeek =
   | 'saturday'
   | 'sunday'
 
+export type IngredientType = {
+  id: string
+  number: number
+  name: string
+}
+
+export type MealOption = {
+  id: string
+  name: string
+}
+
 export type Ingredient = {
   id: string
   name: string
   calories: number
   protein: number
   unit: IngredientUnit
+  ingredientTypeId: string | null
+  ingredientTypeName: string | null
+  ingredientTypeNumber: number | null
+  recipeId: string | null
 }
 
 export type MealIngredientLine = {
