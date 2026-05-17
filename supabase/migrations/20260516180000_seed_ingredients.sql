@@ -1,0 +1,51 @@
+-- Seed ingredient catalog from ingredients.json.
+-- Macros in VALUES are per 100g; stored as per 1g (÷ 100). Names are title-cased.
+
+INSERT INTO public.ingredients (name, calories, protein, unit)
+SELECT
+  name,
+  calories_per_100g / 100.0,
+  protein_per_100g / 100.0,
+  'g'::public.ingredient_unit
+FROM (VALUES
+  ('Jagode', 32, 0.7),
+  ('Chia Semenke', 486, 17),
+  ('Limunov Sok', 22, 0.4),
+  ('Eritritol', 0, 0),
+  ('Integralno Brašno', 340, 13),
+  ('Jaja', 155, 13),
+  ('Ulje', 884, 0),
+  ('Ovsene Pahuljice', 389, 17),
+  ('Lan', 534, 18),
+  ('Bademovo Mleko', 13, 0.4),
+  ('Integralni Hleb', 177, 6),
+  ('Pileća Prsa', 120, 22),
+  ('Ćureća Prsa', 135, 29),
+  ('Humus', 166, 8),
+  ('Zelena Salata', 15, 1.4),
+  ('Paradajz', 18, 0.9),
+  ('Krastavac', 15, 0.7),
+  ('Testenina', 350, 12),
+  ('Spanać', 23, 2.9),
+  ('Sir', 350, 25),
+  ('Pavlaka Za Kuvanje', 200, 2),
+  ('Mlevena Junetina', 250, 26),
+  ('Luk', 40, 1.1),
+  ('Šargarepa', 41, 0.9),
+  ('Parmezan', 431, 36),
+  ('Tortilja', 310, 8),
+  ('Masline', 145, 1),
+  ('Jabuka', 52, 0.3),
+  ('Maslinovo Ulje', 884, 0),
+  ('Tunjevina', 132, 29),
+  ('Beli Pasulj', 100, 7),
+  ('Crveni Pasulj', 112, 8),
+  ('Kobasica', 293, 12),
+  ('Pirinač', 360, 7.5),
+  ('Paprika', 31, 1),
+  ('Pirinčane Nudle', 351, 6),
+  ('Kupus', 25, 1.3),
+  ('Pečurke', 22, 3.1),
+  ('Soja Sos', 53, 8),
+  ('Beli Luk', 149, 6.4)
+) AS seed(name, calories_per_100g, protein_per_100g);

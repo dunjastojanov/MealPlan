@@ -1,67 +1,69 @@
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
+
 :root {
-  --text: #4b5563;
-  --text-h: #111827;
-  --bg: #f9fafb;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --text: #3f3f46;
+  --text-h: #18181b;
+  --bg: #fafafa;
   --surface: #ffffff;
-  --border: #e5e7eb;
+  --border: #e4e4e7;
   --accent: #2563eb;
-  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-soft: #eff6ff;
   --danger: #b91c1c;
-  --danger-bg: rgba(185, 28, 28, 0.08);
-  --danger-border: rgba(185, 28, 28, 0.35);
-  --warn: #b45309;
-  --warn-bg: rgba(180, 83, 9, 0.1);
-  --warn-border: rgba(180, 83, 9, 0.4);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-
-  font: 16px/1.5 var(--sans);
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --warn: #a16207;
+  --warn-bg: #fffbeb;
+  --warn-border: #fde68a;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f9fafb;
-    --bg: #0f1117;
-    --surface: #181b24;
-    --border: #2d3340;
-    --accent: #60a5fa;
-    --accent-soft: rgba(96, 165, 250, 0.12);
-    --danger: #f87171;
-    --danger-bg: rgba(248, 113, 113, 0.12);
-    --danger-border: rgba(248, 113, 113, 0.4);
-    --warn: #fbbf24;
-    --warn-bg: rgba(251, 191, 36, 0.12);
-    --warn-border: rgba(251, 191, 36, 0.45);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --text: #a1a1aa;
+    --text-h: #fafafa;
+    --bg: #09090b;
+    --surface: #18181b;
+    --border: #3f3f46;
+    --accent: #3b82f6;
+    --accent-soft: #1e3a5f;
+    --danger: #fca5a5;
+    --danger-bg: #450a0a;
+    --danger-border: #7f1d1d;
+    --warn: #fcd34d;
+    --warn-bg: #422006;
+    --warn-border: #78350f;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
   }
-}
-
-#root {
-  min-height: 100svh;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-h1,
-h2 {
-  font-weight: 600;
-  color: var(--text-h);
+.scrollbar-themed {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
+.scrollbar-themed::-webkit-scrollbar {
+  width: 8px;
 }
 
-a:hover {
-  text-decoration: underline;
+.scrollbar-themed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-themed::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+.scrollbar-themed::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text);
 }
