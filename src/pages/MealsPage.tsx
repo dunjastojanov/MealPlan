@@ -38,7 +38,7 @@ export function MealsPage() {
     <section>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold text-text-h">Obroci</h1>
+          <h1 className="text-xl font-semibold text-text-h sm:text-2xl">Obroci</h1>
           <p className="mt-1 text-sm text-text">Recepti i šabloni obroka u vašem katalogu.</p>
         </div>
         <button

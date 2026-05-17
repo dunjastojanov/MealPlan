@@ -59,7 +59,7 @@ export function ShoppingList({ items }: ShoppingListProps) {
       {items.length === 0 ? (
         <p className="px-4 py-6 text-sm text-text">Nema sastojaka u planovima.</p>
       ) : (
-        <ul className="grid grid-cols-3 gap-x-4 gap-y-1 px-4 py-3">
+        <ul className="grid grid-cols-1 gap-x-4 gap-y-1 px-4 py-3 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <li key={item.ingredientId} className="py-1.5 text-sm text-text-h">
               {formatShoppingListLine(item)}

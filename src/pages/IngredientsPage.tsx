@@ -1,4 +1,5 @@
 import { ConfirmDeleteModal } from '../components/ConfirmDeleteModal'
+import { IngredientCardList } from '../components/IngredientCardList'
 import { IngredientEditAside } from '../components/IngredientEditAside'
 import { macroLabel, toDisplayMacro, useIngredients } from '../hooks/useIngredients'
 import { unitLabel } from '../lib/unitDisplay'
@@ -44,7 +45,7 @@ export function IngredientsPage() {
     <section>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold text-text-h">Sastojci</h1>
+          <h1 className="text-xl font-semibold text-text-h sm:text-2xl">Sastojci</h1>
           <p className="mt-1 text-sm text-text">
             Makro vrednosti su prikazane na 100 g za stavke u gramima.
           </p>
@@ -75,8 +76,16 @@ export function IngredientsPage() {
       )}
 
       {!loading && !error && ingredients.length > 0 && (
-        <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-surface shadow">
-          <table className="w-full min-w-[36rem] text-left text-sm">
+        <>
+          <div className="mt-6 md:hidden">
+            <IngredientCardList
+              ingredients={ingredients}
+              onEdit={openEdit}
+              onDelete={openDelete}
+            />
+          </div>
+          <div className="mt-6 hidden overflow-x-auto rounded-xl border border-border bg-surface shadow md:block">
+          <table className="w-full text-left text-sm">
             <thead>
               <tr className="border-b border-border text-text">
                 <th scope="col" className="px-4 py-3 font-medium text-text-h">
@@ -131,7 +140,8 @@ export function IngredientsPage() {
               ))}
             </tbody>
           </table>
-        </div>
+          </div>
+        </>
       )}
 
       {form && creating && (

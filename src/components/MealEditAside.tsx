@@ -142,7 +142,7 @@ export function MealEditAside({
               {form.ingredients.map((line) => (
                 <li
                   key={line.key}
-                  className="flex items-end gap-2 rounded-lg border border-border bg-bg p-3"
+                  className="flex flex-col gap-2 rounded-lg border border-border bg-bg p-3 sm:flex-row sm:items-end"
                 >
                   <label className="min-w-0 flex-1">
                     <span className="text-xs font-medium text-text">Sastojak</span>
@@ -164,7 +164,7 @@ export function MealEditAside({
                     </select>
                   </label>
 
-                  <label className="w-24 shrink-0">
+                  <label className="w-full shrink-0 sm:w-24">
                     <span className="text-xs font-medium text-text">
                       {amountLabel(catalog, line.ingredientId)}
                     </span>
@@ -185,7 +185,7 @@ export function MealEditAside({
                     type="button"
                     disabled={saving || form.ingredients.length <= 1}
                     onClick={() => onChange(removeIngredientLine(form, line.key))}
-                    className="shrink-0 pb-2.5 text-xs font-medium text-danger transition-colors hover:underline disabled:cursor-not-allowed disabled:opacity-60"
+                    className="shrink-0 self-start pb-0 text-xs font-medium text-danger transition-colors hover:underline disabled:cursor-not-allowed disabled:opacity-60 sm:self-auto sm:pb-2.5"
                   >
                     Ukloni
                   </button>

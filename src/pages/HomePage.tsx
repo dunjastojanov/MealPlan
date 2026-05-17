@@ -16,8 +16,8 @@ export function HomePage() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-xl border border-border bg-surface p-8 shadow">
-        <h1 className="text-2xl font-semibold text-text-h">
+      <section className="rounded-xl border border-border bg-surface p-5 shadow sm:p-8">
+        <h1 className="text-xl font-semibold text-text-h sm:text-2xl">
           Dobrodošli, {user.first_name} {user.last_name}
         </h1>
         <p className="mt-2 text-text">

@@ -43,7 +43,7 @@ export function MealPlansPage() {
   return (
     <section>
       <div>
-        <h1 className="text-2xl font-semibold text-text-h">Planovi ishrane</h1>
+        <h1 className="text-xl font-semibold text-text-h sm:text-2xl">Planovi ishrane</h1>
         <p className="mt-1 text-sm text-text">
           Nedeljni raspored po članu domaćinstva — dani u kolonama, obroci u redovima.
         </p>
@@ -105,7 +105,7 @@ export function MealPlansPage() {
       )}
 
       {detailLoading && editingPlan && (
-        <p className="fixed bottom-4 right-4 z-[60] rounded-lg border border-border bg-surface px-4 py-2 text-sm text-text shadow">
+        <p className="fixed bottom-4 left-4 right-4 z-[60] rounded-lg border border-border bg-surface px-4 py-2 text-sm text-text shadow sm:left-auto sm:right-4 sm:max-w-xs">
           Učitavanje plana…
         </p>
       )}

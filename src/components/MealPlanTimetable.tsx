@@ -2,6 +2,7 @@ import { TIMETABLE_DAYS } from '../lib/mealPlanTimetable'
 import type { UserMealPlanTimetable } from '../lib/mealPlanTimetable'
 import { formatMealMacros } from '../lib/mealMacros'
 import type { DailyMealPlanSummary } from '../types'
+import { MealPlanTimetableMobile } from './MealPlanTimetableMobile'
 
 const actionButtonClassName =
   'rounded border border-border px-1.5 py-0.5 text-[0.65rem] font-medium leading-tight text-text transition-colors hover:bg-accent-soft disabled:cursor-not-allowed disabled:opacity-60'
@@ -23,7 +24,15 @@ export function MealPlanTimetable({
     <article className="rounded-xl border border-border bg-surface shadow">
       <h2 className="border-b border-border px-4 py-3 font-semibold text-text-h">{userName}</h2>
 
-      <div className="overflow-x-auto">
+      <div className="md:hidden">
+        <MealPlanTimetableMobile
+          timetable={timetable}
+          detailLoading={detailLoading}
+          onEdit={onEdit}
+        />
+      </div>
+
+      <div className="hidden overflow-x-auto md:block">
         <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
           <thead>
             <tr className="border-b border-border bg-accent-soft/30">

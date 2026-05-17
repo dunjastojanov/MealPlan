@@ -33,7 +33,7 @@ function DayRecipePageContent({ day }: { day: DayOfWeek }) {
         >
           ← Planovi ishrane
         </Link>
-        <h1 className="mt-2 text-2xl font-semibold text-text-h">
+        <h1 className="mt-2 text-xl font-semibold text-text-h sm:text-2xl">
           {dayOfWeekLabel(day)} — spojeni recepti
         </h1>
         <p className="mt-1 text-sm text-text">
